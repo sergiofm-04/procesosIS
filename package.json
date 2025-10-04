@@ -1,0 +1,24 @@
+{
+  "name": "procesosis",
+  "version": "1.0.0",
+  "description": "Proyecto realizado para la asignatura \"Procesos de Ingeniería del Software\" (curso 2025/26).\r Este repositorio contiene el trabajo inicial del Sprint 1 enfocado en la parte de \"agregar usuario\". El objetivo actual es disponer de una implementación de cliente (modelo en memoria) y, opcionalmente, un servidor mínimo si se desea activar.\r ## Estado actual (archivos relevantes)\r - `cliente/index.html` — Interfaz cliente; actualmente carga `cliente/modelo.js`.\r - `cliente/modelo.js` — Implementación en memoria del sistema de usuarios (objeto `Sistema` y `Usuario`).\r - `servidor/` — (opcional) código de servidor y modelo si se decide activar; puede no existir si no se ha inicializado.\r - `README.md` — Este fichero.\r ## Descripción breve del cliente actual\r El archivo `cliente/modelo.js` contiene dos constructoras:\r - `Sistema`: mantiene `this.usuarios` como un objeto donde las claves son los nicks. Métodos principales:\r \t- `agregarUsuario(nick)` — añade un usuario nuevo.\r \t- `obtenerUsuarios()` — devuelve el objeto `usuarios`.\r \t- `usuarioActivo(nick)` — comprueba existencia.\r \t- `eliminarUsuario(nick)` — elimina.\r \t- `numeroUsuarios()` — devuelve el número de usuarios.\r - `Usuario`: almacena sólo `nick` por ahora.\r ## Cómo ejecutar / probar localmente\r 1. Abrir `cliente/index.html` en el navegador (doble clic) para revisar la UI si existe contenido HTML.\r 2. Si quieres levantar un servidor Express local que sirva la carpeta `cliente` y una API de usuarios, crea un `package.json` e instala `express` y `cors` y añade un pequeño `index.js` (no incluido en este estado actual si lo desechaste). Puedo prepararlo si lo deseas.\r Ejemplo mínimo para levantar servidor (opcional):\r ```powershell\r npm init -y\r npm install express cors nanoid\r # crear index.js y servidor que sirva /cliente y exponga /api/usuarios\r node index.js\r ```\r ## Decisiones y supuestos\r - El cliente actual usa almacenamiento en memoria (no persistente). Esto es intencional para la fase inicial de la práctica.\r - No se han incluido tests automáticos aún.\r ## Próximos pasos sugeridos\r - Implementar la interfaz HTML requerida por la práctica (formulario de agregar usuario + listado). Puedo añadirla en `cliente/index.html` si lo deseas.\r - Añadir persistencia en servidor (`servidor/data/usuarios.json`) y endpoints REST.\r - Añadir pruebas unitarias para la lógica de `Sistema`.\r Si quieres, preparo ahora mismo el `index.html` concreto que pide la práctica (form + comportamiento) y lo separo en `modelo.js` + `app.js` según el enunciado original. Dime si prefieres todo en un mismo archivo o separado.",
+  "main": "index.js",
+  "scripts": {
+    "test": "jasmine servidor/modeloSpec.js",
+    "start": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sergiofm-04/procesosIS.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/sergiofm-04/procesosIS/issues"
+  },
+  "homepage": "https://github.com/sergiofm-04/procesosIS#readme",
+  "dependencies": {
+    "express": "^5.1.0",
+    "jasmine": "^5.11.0"
+  }
+}
